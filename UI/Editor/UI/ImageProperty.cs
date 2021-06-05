@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace HT.SpecialEffects
+namespace HT.Effects
 {
     /// <summary>
     /// Image组件的属性
@@ -28,7 +28,7 @@ namespace HT.SpecialEffects
             property._fillOrigin = image.fillOrigin;
             property._fillAmount = image.fillAmount;
             property._fillClockwise = image.fillClockwise;
-            if (UISpecialEffectsEditor.IsDefaultMaterial(property._material))
+            if (property._material.IsUIDefaultMaterial())
             {
                 property._material = null;
             }
@@ -54,7 +54,7 @@ namespace HT.SpecialEffects
             property._fillOrigin = image.fillOrigin;
             property._fillAmount = image.fillAmount;
             property._fillClockwise = image.fillClockwise;
-            if (UISpecialEffectsEditor.IsDefaultMaterial(property._material))
+            if (property._material.IsUIDefaultMaterial())
             {
                 property._material = null;
             }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace HT.SpecialEffects
+namespace HT.Effects
 {
     /// <summary>
     /// RawImage组件的属性
@@ -21,7 +21,7 @@ namespace HT.SpecialEffects
             property._material = image.material;
             property._raycastTarget = image.raycastTarget;
             property._uvRect = image.uvRect;
-            if (UISpecialEffectsEditor.IsDefaultMaterial(property._material))
+            if (property._material.IsUIDefaultMaterial())
             {
                 property._material = null;
             }
@@ -40,7 +40,7 @@ namespace HT.SpecialEffects
             property._material = image.material;
             property._raycastTarget = image.raycastTarget;
             property._uvRect = image.uvRect;
-            if (UISpecialEffectsEditor.IsDefaultMaterial(property._material))
+            if (property._material.IsUIDefaultMaterial())
             {
                 property._material = null;
             }
