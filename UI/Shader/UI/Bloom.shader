@@ -4,9 +4,10 @@
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip("使用透明度裁剪", Float) = 0
+		_BloomTex("泛光纹理", 2D) = "white" {}
 		_BloomColor("泛光颜色", Color) = (1,1,1)
-		_ThresholdValue("亮度阀值", Range(0, 1)) = 0.5
-		_Intensity("强度", Range(0, 1)) = 0.2
+		_ThresholdValue("泛光阀值", Range(0, 1)) = 0.5
+		_Intensity("泛光强度", Range(0, 1)) = 0.5
 	}
 
 	SubShader
@@ -44,6 +45,7 @@
 			sampler2D _MainTex;
 			fixed4 _TextureSampleAdd;
 			float4 _ClipRect;
+			sampler2D _BloomTex;
 			fixed3 _BloomColor;
 			fixed _ThresholdValue;
 			fixed _Intensity;
@@ -53,7 +55,9 @@
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 
-				color = ApplyBloom(color, _ThresholdValue, _BloomColor, _Intensity);
+				half value = (tex2D(_BloomTex, IN.texcoord) + _TextureSampleAdd).a;
+
+				color = ApplyBloom(color, value, _ThresholdValue, _Intensity, _BloomColor);
 				
 				#ifdef UNITY_UI_ALPHACLIP
 				clip(color.a - 0.001);

@@ -18,13 +18,13 @@ float2 RotatePoint2(float2 point2, float2 center, half radian)
 }
 
 //为一个颜色应用亮度
-half3 ApplyBrightness(half3 color, half brightness)
+half3 ApplyBrightness(half3 color, fixed brightness)
 {
 	return color * brightness;
 }
 
 //为一个颜色应用饱和度
-half3 ApplySaturation(half3 color, half saturation)
+half3 ApplySaturation(half3 color, fixed saturation)
 {
 	half gray = dot(half3(0.2154, 0.7154, 0.0721), color);
 	half3 grayColor = half3(gray, gray, gray);
@@ -32,14 +32,14 @@ half3 ApplySaturation(half3 color, half saturation)
 }
 
 //为一个颜色应用对比度
-half3 ApplyContrast(half3 color, half contrast)
+half3 ApplyContrast(half3 color, fixed contrast)
 {
 	half3 contColor = half3(0.5, 0.5, 0.5);
 	return lerp(contColor, color, contrast);
 }
 
 //为一个UV值应用像素化缩放
-float2 ApplyPixel(float2 uv, half pixelSize, float2 texelSize)
+float2 ApplyPixel(float2 uv, fixed pixelSize, float2 texelSize)
 {
 	//此处确保缩放系数始终大于等于2（因为如果小于2，甚至等于0了会影响后面的计算）
 	half2 factor = max(2, (1 - pixelSize * 0.95) * texelSize);
@@ -48,7 +48,7 @@ float2 ApplyPixel(float2 uv, half pixelSize, float2 texelSize)
 }
 
 //让一个颜色更冷
-half4 ApplyCoolColor(half4 color, half intensity)
+half4 ApplyCoolColor(half4 color, fixed intensity)
 {
 	color.r *= (1 - intensity);
 	color.b *= (1 + intensity);
@@ -56,17 +56,17 @@ half4 ApplyCoolColor(half4 color, half intensity)
 }
 
 //让一个颜色更暖
-half4 ApplyWarmColor(half4 color, half intensity)
+half4 ApplyWarmColor(half4 color, fixed intensity)
 {
 	color.r *= (1 + intensity);
 	color.b *= (1 - intensity);
 	return color;
 }
 
-//为一个颜色应用泛光效果（当该颜色达到指定亮度阀值时）
-half4 ApplyBloom(half4 color, fixed threshold, half3 bloomColor, fixed intensity)
+//为一个颜色应用泛光效果
+half4 ApplyBloom(half4 color, half alpha, fixed threshold, fixed intensity, fixed3 bloomColor)
 {
-	color.rgb += saturate(GetBrightness(color.rgb) - threshold) * bloomColor * intensity;
+	color.rgb += bloomColor * saturate(1 - abs(threshold - alpha) * lerp(5, 1, intensity));
 	return color;
 }
 
@@ -102,7 +102,7 @@ half4 ApplyShiny(half4 color, float2 uv, fixed width, fixed softness, fixed brig
 }
 
 //为一个颜色应用溶解效果
-half4 ApplyDissolve(half4 color, fixed3 dissolveColor, float alpha, fixed degree, fixed width, fixed softness)
+half4 ApplyDissolve(half4 color, fixed3 dissolveColor, half alpha, fixed degree, fixed width, fixed softness)
 {
 	//缩放宽度系数
 	width *= 0.1;
@@ -110,22 +110,21 @@ half4 ApplyDissolve(half4 color, fixed3 dissolveColor, float alpha, fixed degree
 	fixed value = step(0.01, degree);
 	width *= value;
 	softness *= value;
-	//计算gap，溶解程度与溶解透明度的差值
-	//gap小于width时，代表还未溶解的部分
-	//gap大于width时，代表已经溶解的部分
+	//计算gap，溶解程度与溶解透明度的差值（width为溶解范围）
+	//gap小于width时，代表还未溶解、处于溶解中
+	//gap大于width时，代表已经溶解
+	//abs(gap)小于width时，代表处于溶解中
+	//abs(gap)大于等于width时，代表不在溶解中
 	float gap = degree - alpha;
-	//abs(gap)小于width时，代表处在溶解范围中（width即为溶解范围），saturate返回大于0的数，为图像混合溶解色
-	//abs(gap)大于等于width时，代表不在溶解范围中（width即为溶解范围），saturate返回0，不为图像混合溶解色
 #if _MODE_BLEND
+	//当处于溶解中时（width - abs(gap) 大于0），saturate返回大于0的数，附加溶解色，否则saturate返回0，不附加颜色
 	color.rgb += dissolveColor * saturate((width - abs(gap)) * 20 / softness);
 #endif
-	//abs(gap)小于width时，代表处在溶解范围中（width即为溶解范围），saturate返回大于0的数，为图像覆盖溶解色
-	//abs(gap)大于等于width时，代表不在溶解范围中（width即为溶解范围），saturate返回0，不为图像覆盖溶解色
 #if _MODE_OVERLAY
+	//当处于溶解中时（width - abs(gap) 大于0），saturate返回大于0的数，覆盖溶解色，否则saturate返回0，不覆盖颜色
 	color.rgb = lerp(color.rgb, dissolveColor, saturate((width - abs(gap)) * 20 / softness));
 #endif
-	//还未溶解的部分，saturate返回大于0的数，透明度叠加
-	//已经溶解的部分，saturate返回0，透明度为0
+	//当还未溶解、处于溶解中时（width - gap 大于0），saturate返回大于0的数，透明度叠加，否则saturate返回0，透明度为0
 	color.a *= saturate((width - gap) * 20 / softness);
 	//当溶解程度为1时，透明度为0
 	color.a *= (1 - step(1, degree));

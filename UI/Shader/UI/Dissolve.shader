@@ -8,8 +8,8 @@
 		_DissolveColor("溶解颜色", Color) = (1,1,1)
 		[KeywordEnum(Blend, Overlay)] _Mode("溶解模式", Float) = 0
 		_Degree("溶解程度", Range(0, 1)) = 0
-		_Width("宽度", Range(0, 1)) = 1
-		_Softness("柔和度", Range(0, 1)) = 1
+		_Width("溶解区域宽度", Range(0, 1)) = 1
+		_Softness("溶解区域柔和度", Range(0, 1)) = 1
 	}
 
 	SubShader

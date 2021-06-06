@@ -43,7 +43,7 @@
 			fixed4 _TextureSampleAdd;
 			float4 _MainTex_TexelSize;
 			float4 _ClipRect;
-			half _PixelSize;
+			fixed _PixelSize;
 			
 			fixed4 frag(FragData IN) : SV_Target
 			{

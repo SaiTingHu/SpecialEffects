@@ -42,9 +42,9 @@
 			#pragma multi_compile_local _ UNITY_UI_ALPHACLIP
 
 			sampler2D _MainTex;
-			half _Brightness;
-			half _Saturation;
-			half _Contrast;
+			fixed _Brightness;
+			fixed _Saturation;
+			fixed _Contrast;
 			fixed4 _TextureSampleAdd;
 			float4 _ClipRect;
 
