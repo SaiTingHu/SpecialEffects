@@ -182,6 +182,8 @@ namespace HT.Effects
         /// </summary>
         public void OnInspectorGUI()
         {
+            GUI.enabled = !EditorApplication.isPlaying;
+
             if (CurrentEffect != NoEffects)
             {
                 GUILayout.BeginHorizontal();
@@ -228,6 +230,8 @@ namespace HT.Effects
                 GUI.backgroundColor = Color.white;
                 GUILayout.EndHorizontal();
             }
+
+            GUI.enabled = true;
         }
         /// <summary>
         /// 属性动画GUI
@@ -364,7 +368,7 @@ namespace HT.Effects
 
                     if (_effectsPlayers.Exists((e) => { return e.PropertyName == property.name; }))
                     {
-                        gm.AddDisabledItem(new GUIContent(property.displayName));
+                        gm.AddDisabledItem(new GUIContent(property.displayName), true);
                     }
                     else
                     {
