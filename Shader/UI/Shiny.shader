@@ -63,7 +63,7 @@
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 
-				//计算uv偏移值（限制在[-2, 2]范围内）
+				//计算uv偏移值（映射到区间[-2, 2]）
 				fixed offset = _Position * 4 - 2;
 				//uv偏移
 				float2 uv = float2(IN.texcoord.x - offset * _ShinyX, IN.texcoord.y - offset * _ShinyY);

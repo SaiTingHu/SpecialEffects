@@ -89,7 +89,7 @@ half4 ApplyBlur(sampler2D mainTex, float2 pixelSize, float2 uv, int intensity)
 //为一个uv区域应用闪亮特效，区域的中心最亮，越往两边越暗
 half4 ApplyShiny(half4 color, float2 uv, fixed width, fixed softness, fixed brightness, fixed gloss)
 {
-	//先将输入的uv区间[0,0.5,1]，转为区间[1,0,1]，再以width系数缩放区间
+	//先将输入的uv区间[0,0.5,1]，映射到区间[1,0,1]，再以width系数缩放区间
 	//然后通过1减去区间，将value倒置为区间[0,1,0]
 	half value = 1 - saturate(abs((uv.x * 2 - 1) / (width * 2)));
 	//通过smoothstep将区间[0,1,0]平滑，并降低一倍强度得到闪光强度power
