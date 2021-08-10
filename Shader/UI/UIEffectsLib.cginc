@@ -131,6 +131,11 @@ half4 ApplyDissolve(half4 color, fixed3 dissolveColor, half alpha, fixed degree,
 	return color;
 }
 
+half4 ApplyBorderFlow()
+{
+
+}
+
 //顶点处理输入数据（标准）
 struct VertData
 {

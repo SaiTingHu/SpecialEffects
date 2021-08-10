@@ -19,14 +19,14 @@ namespace HT.Effects
         /// </summary>
         private static readonly string[] AllEffects = new string[]
         {
-            "Basic", "CoolColor", "WarmColor", "Pixel", "Shiny", "Dissolve", "Blur", "Bloom"
+            "Basic", "CoolColor", "WarmColor", "Pixel", "Shiny", "Dissolve", "Blur", "Bloom", "BorderFlow"
         };
         /// <summary>
         /// 所有特效名称
         /// </summary>
         private static readonly string[] AllEffectNames = new string[]
         {
-            "基本", "冷色", "暖色", "像素化", "闪亮", "溶解", "模糊", "泛光"
+            "基本", "冷色", "暖色", "像素化", "闪亮", "溶解", "模糊", "泛光", "边框流动"
         };
         /// <summary>
         /// 空特效名称
