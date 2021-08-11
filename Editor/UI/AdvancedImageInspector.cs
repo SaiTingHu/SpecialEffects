@@ -13,11 +13,20 @@ namespace HT.Effects
         {
             base.OnEnable();
 
+            if (targets.Length > 1)
+                return;
+
             _inspector = new AdvancedUIInspector(target);
         }
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
+
+            if (targets.Length > 1)
+            {
+                EditorGUILayout.HelpBox("Special effects not support multi-object editing.", MessageType.None);
+                return;
+            }
 
             _inspector.RefreshEffects();
             _inspector.OnInspectorGUI();

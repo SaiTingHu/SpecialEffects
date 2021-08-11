@@ -1,4 +1,5 @@
-﻿Shader "HTSpecialEffects/UI/Dissolve"
+﻿//溶解
+Shader "HT.SpecialEffects/UI/Dissolve"
 {
 	Properties
 	{
@@ -47,7 +48,6 @@
 			
 			sampler2D _MainTex;
 			fixed4 _TextureSampleAdd;
-			float4 _ClipRect;
 			sampler2D _DissolveTex;
 			fixed3 _DissolveColor;
 			fixed _Degree;
@@ -57,7 +57,6 @@
 			fixed4 frag(FragData IN) : SV_Target
 			{
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
-				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 
 				//应用溶解特效
 				color = ApplyDissolve(color, _DissolveColor, tex2D(_DissolveTex, IN.texcoord).a, _Degree, _Width, _Softness);

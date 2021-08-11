@@ -13,20 +13,42 @@ namespace HT.Effects
         /// <summary>
         /// 特效Shader前缀
         /// </summary>
-        private static readonly string EffectsPrefix = "HTSpecialEffects/UI/";
+        private static readonly string EffectsPrefix = "HT.SpecialEffects/UI/";
         /// <summary>
         /// 所有特效
         /// </summary>
         private static readonly string[] AllEffects = new string[]
         {
-            "Basic", "CoolColor", "WarmColor", "Pixel", "Shiny", "Dissolve", "Blur", "Bloom", "BorderFlow"
+            "Basic",
+            "Bloom",
+            "Blur",
+            "BorderFlow",
+            "CirclePierced",
+            "CoolColor",
+            "CubePierced",
+            "Dissolve",
+            "Pixel",
+            "Shiny",
+            "WarmColor",
+            "Wave"
         };
         /// <summary>
         /// 所有特效名称
         /// </summary>
         private static readonly string[] AllEffectNames = new string[]
         {
-            "基本", "冷色", "暖色", "像素化", "闪亮", "溶解", "模糊", "泛光", "边框流动"
+            "基本",
+            "泛光",
+            "模糊",
+            "边框流动",
+            "圆形镂空",
+            "冷色",
+            "方格镂空",
+            "溶解",
+            "像素化",
+            "闪亮",
+            "暖色",
+            "波浪"
         };
         /// <summary>
         /// 空特效名称
@@ -257,7 +279,9 @@ namespace HT.Effects
                     GUI.backgroundColor = Color.red;
                     if (GUILayout.Button("Delete", EditorStyles.miniButton))
                     {
+                        BeginChange("Delete Animation");
                         _effectsPlayers.RemoveAt(i);
+                        EndChange();
                         continue;
                     }
                     GUI.backgroundColor = Color.white;
@@ -290,13 +314,31 @@ namespace HT.Effects
                     switch (effectsPlayer.ValueType)
                     {
                         case AnimationValueType.Float:
-                            effectsPlayer.FloatStartValue = EditorGUILayout.FloatField(effectsPlayer.FloatStartValue);
+                            float floatValue = EditorGUILayout.FloatField(effectsPlayer.FloatStartValue);
+                            if (!Mathf.Approximately(floatValue, effectsPlayer.FloatStartValue))
+                            {
+                                BeginChange("Change Value");
+                                effectsPlayer.FloatStartValue = floatValue;
+                                EndChange();
+                            }
                             break;
                         case AnimationValueType.Color:
-                            effectsPlayer.ColorStartValue = EditorGUILayout.ColorField(effectsPlayer.ColorStartValue);
+                            Color colorValue = EditorGUILayout.ColorField(effectsPlayer.ColorStartValue);
+                            if (colorValue != effectsPlayer.ColorStartValue)
+                            {
+                                BeginChange("Change Value");
+                                effectsPlayer.ColorStartValue = colorValue;
+                                EndChange();
+                            }
                             break;
                         case AnimationValueType.Vector4:
-                            effectsPlayer.Vector4StartValue = EditorGUILayout.ColorField(effectsPlayer.Vector4StartValue);
+                            Vector4 vector4Value = EditorGUILayout.Vector4Field("", effectsPlayer.Vector4StartValue);
+                            if (vector4Value != effectsPlayer.Vector4StartValue)
+                            {
+                                BeginChange("Change Value");
+                                effectsPlayer.Vector4StartValue = vector4Value;
+                                EndChange();
+                            }
                             break;
                     }
                     GUILayout.EndHorizontal();
@@ -307,13 +349,31 @@ namespace HT.Effects
                     switch (effectsPlayer.ValueType)
                     {
                         case AnimationValueType.Float:
-                            effectsPlayer.FloatEndValue = EditorGUILayout.FloatField(effectsPlayer.FloatEndValue);
+                            float floatValue = EditorGUILayout.FloatField(effectsPlayer.FloatEndValue);
+                            if (!Mathf.Approximately(floatValue, effectsPlayer.FloatEndValue))
+                            {
+                                BeginChange("Change Value");
+                                effectsPlayer.FloatEndValue = floatValue;
+                                EndChange();
+                            }
                             break;
                         case AnimationValueType.Color:
-                            effectsPlayer.ColorEndValue = EditorGUILayout.ColorField(effectsPlayer.ColorEndValue);
+                            Color colorValue = EditorGUILayout.ColorField(effectsPlayer.ColorEndValue);
+                            if (colorValue != effectsPlayer.ColorEndValue)
+                            {
+                                BeginChange("Change Value");
+                                effectsPlayer.ColorEndValue = colorValue;
+                                EndChange();
+                            }
                             break;
                         case AnimationValueType.Vector4:
-                            effectsPlayer.Vector4EndValue = EditorGUILayout.ColorField(effectsPlayer.Vector4EndValue);
+                            Vector4 vector4Value = EditorGUILayout.Vector4Field("", effectsPlayer.Vector4EndValue);
+                            if (vector4Value != effectsPlayer.Vector4EndValue)
+                            {
+                                BeginChange("Change Value");
+                                effectsPlayer.Vector4EndValue = vector4Value;
+                                EndChange();
+                            }
                             break;
                     }
                     GUILayout.EndHorizontal();
@@ -321,7 +381,13 @@ namespace HT.Effects
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(20);
                     GUILayout.Label("Loop", GUILayout.Width(EditorGUIUtility.labelWidth - 20));
-                    effectsPlayer.IsLoop = EditorGUILayout.Toggle(effectsPlayer.IsLoop);
+                    bool isLoop = EditorGUILayout.Toggle(effectsPlayer.IsLoop);
+                    if (isLoop != effectsPlayer.IsLoop)
+                    {
+                        BeginChange("Change Loop State");
+                        effectsPlayer.IsLoop = isLoop;
+                        EndChange();
+                    }
                     GUILayout.EndHorizontal();
 
                     if (effectsPlayer.IsLoop)
@@ -329,24 +395,39 @@ namespace HT.Effects
                         GUILayout.BeginHorizontal();
                         GUILayout.Space(20);
                         GUILayout.Label("Loop Mode", GUILayout.Width(EditorGUIUtility.labelWidth - 20));
-                        effectsPlayer.LoopMode = (AnimationLoopMode)EditorGUILayout.EnumPopup(effectsPlayer.LoopMode);
+                        AnimationLoopMode loopMode = (AnimationLoopMode)EditorGUILayout.EnumPopup(effectsPlayer.LoopMode);
+                        if (loopMode != effectsPlayer.LoopMode)
+                        {
+                            BeginChange("Change Loop Mode");
+                            effectsPlayer.LoopMode = loopMode;
+                            EndChange();
+                        }
                         GUILayout.EndHorizontal();
                     }
 
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(20);
                     GUILayout.Label("Duration", GUILayout.Width(EditorGUIUtility.labelWidth - 20));
-                    effectsPlayer.Duration = EditorGUILayout.FloatField(effectsPlayer.Duration);
-                    if (effectsPlayer.Duration <= 0)
+                    float duration = EditorGUILayout.FloatField(effectsPlayer.Duration);
+                    if (!Mathf.Approximately(duration, effectsPlayer.Duration))
                     {
-                        effectsPlayer.Duration = 0.01f;
+                        BeginChange("Change Duration");
+                        if (duration <= 0) duration = 0.01f;
+                        effectsPlayer.Duration = duration;
+                        EndChange();
                     }
                     GUILayout.EndHorizontal();
 
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(20);
                     GUILayout.Label("Play On Start", GUILayout.Width(EditorGUIUtility.labelWidth - 20));
-                    effectsPlayer.IsPlayOnStart = EditorGUILayout.Toggle(effectsPlayer.IsPlayOnStart);
+                    bool isPlayOnStart = EditorGUILayout.Toggle(effectsPlayer.IsPlayOnStart);
+                    if (isPlayOnStart != effectsPlayer.IsPlayOnStart)
+                    {
+                        BeginChange("Change PlayOnStart State");
+                        effectsPlayer.IsPlayOnStart = isPlayOnStart;
+                        EndChange();
+                    }
                     GUILayout.EndHorizontal();
                 }
             }

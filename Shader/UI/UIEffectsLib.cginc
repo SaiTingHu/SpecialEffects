@@ -17,6 +17,25 @@ float2 RotatePoint2(float2 point2, float2 center, half radian)
 	return point2;
 }
 
+//求一个点是否在指定方形区域内
+fixed IsInRect(half4 rect, half2 point2)
+{
+	half width = rect.z * 0.5;
+	half height = rect.w * 0.5;
+	fixed left = step(rect.x - width, point2.x);
+	fixed right = step(point2.x, rect.x + width);
+	fixed up = step(rect.y - height, point2.y);
+	fixed down = step(point2.y, rect.y + height);
+	return left * right * up * down;
+}
+
+//求一个点是否在指定圆形区域内
+fixed IsInCircle(half2 center, half radius, half2 point2)
+{
+	half dis = distance(point2, center);
+	return step(dis, radius);
+}
+
 //为一个颜色应用亮度
 half3 ApplyBrightness(half3 color, fixed brightness)
 {
@@ -38,7 +57,7 @@ half3 ApplyContrast(half3 color, fixed contrast)
 	return lerp(contColor, color, contrast);
 }
 
-//为一个UV值应用像素化缩放
+//为一个uv值应用像素化缩放
 float2 ApplyPixel(float2 uv, fixed pixelSize, float2 texelSize)
 {
 	//此处确保缩放系数始终大于等于2（因为如果小于2，甚至等于0了会影响后面的计算）
@@ -131,9 +150,73 @@ half4 ApplyDissolve(half4 color, fixed3 dissolveColor, half alpha, fixed degree,
 	return color;
 }
 
-half4 ApplyBorderFlow()
+//为一个uv区域应用边框流动
+half4 ApplyBorderFlow(half4 color, float2 uv, half flowPos, half flowWidth, half flowThickness, half flowBrightness, fixed3 flowColor, float2 texelSize)
 {
+	//计算上下边框的宽、高
+	half width = flowWidth * 0.5;
+	half height = flowThickness * 0.5;
 
+	//绘制上边框
+	//计算当前流光位置
+	half ratio = smoothstep(0, 0.5, flowPos);
+	//将流光映射到图像上的真实位置
+	half realPos = lerp(width * -1, 1 + width, ratio);
+	//计算当前流光强度
+	half brightness = IsInRect(half4(realPos, 1 - height, width * 2, height * 2), uv) * flowBrightness;
+	//将流光区域平滑（使得越靠近区域右侧，流光强度越接近1，越靠近区域左侧，流光强度越接近0）
+	brightness *= smoothstep(0, width * 2, uv.x - realPos + width);
+	//将流光颜色叠加到主颜色
+	color.rgb += color.a * brightness * flowColor;
+
+	//绘制下边框（原理同上边框）
+	realPos = lerp(width * -1, 1 + width, 1 - ratio);
+	brightness = IsInRect(half4(realPos, height, width * 2, height * 2), uv) * flowBrightness;
+	brightness *= smoothstep(0, width * 2, realPos - uv.x + width);
+	color.rgb += color.a * brightness * flowColor;
+
+	//计算左右边框的宽、高（保证在图像的宽、高不等时，流光的宽、高值保持一致）
+	width = width * texelSize.x / texelSize.y;
+	height = height * texelSize.y / texelSize.x;
+
+	//绘制左边框（原理同上边框）
+	ratio = smoothstep(0.5, 1, flowPos);
+	realPos = lerp(width * -1, 1 + width, ratio);
+	brightness = IsInRect(half4(height, realPos, height * 2, width * 2), uv) * flowBrightness;
+	brightness *= smoothstep(0, width * 2, uv.y - realPos + width);
+	color.rgb += color.a * brightness * flowColor;
+
+	//绘制右边框（原理同上边框）
+	realPos = lerp(width * -1, 1 + width, 1 - ratio);
+	brightness = IsInRect(half4(1 - height, realPos, height * 2, width * 2), uv) * flowBrightness;
+	brightness *= smoothstep(0, width * 2, realPos - uv.y + width);
+	color.rgb += color.a * brightness * flowColor;
+
+	return color;
+}
+
+//为一个uv区域应用方格镂空
+half4 ApplyCubePierced(half4 color, float2 uv, half4 piercedRect, fixed alpha)
+{
+	fixed value = IsInRect(piercedRect, uv);
+	color.a = alpha * value + color.a * (1 - value);
+	return color;
+}
+
+//为一个uv区域应用圆形镂空
+half4 ApplyCirclePierced(half4 color, float2 uv, half2 center, half radius, fixed alpha)
+{
+	fixed value = IsInCircle(center, radius, uv);
+	color.a = alpha * value + color.a * (1 - value);
+	return color;
+}
+
+//为一个uv区域应用波浪效果
+half4 ApplyWave(sampler2D mainTex, sampler2D noiseTex, float2 uv, float2 wave, fixed intensity)
+{
+	half4 noise = tex2D(noiseTex, uv + wave);
+	half4 color = tex2D(mainTex, uv + noise.a * intensity);
+	return color;
 }
 
 //顶点处理输入数据（标准）

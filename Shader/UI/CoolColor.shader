@@ -1,4 +1,5 @@
-﻿Shader "HTSpecialEffects/UI/CoolColor"
+﻿//冷色
+Shader "HT.SpecialEffects/UI/CoolColor"
 {
 	Properties
 	{
@@ -41,13 +42,11 @@
 
 			sampler2D _MainTex;
 			fixed4 _TextureSampleAdd;
-			float4 _ClipRect;
 			fixed _Intensity;
 			
 			fixed4 frag(FragData IN) : SV_Target
 			{
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
-				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 				
 				color = ApplyCoolColor(color, _Intensity);
 

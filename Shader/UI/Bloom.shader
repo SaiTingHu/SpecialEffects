@@ -1,4 +1,5 @@
-﻿Shader "HTSpecialEffects/UI/Bloom"
+﻿//泛光
+Shader "HT.SpecialEffects/UI/Bloom"
 {
 	Properties
 	{
@@ -44,7 +45,6 @@
 			
 			sampler2D _MainTex;
 			fixed4 _TextureSampleAdd;
-			float4 _ClipRect;
 			sampler2D _BloomTex;
 			fixed3 _BloomColor;
 			fixed _ThresholdValue;
@@ -53,7 +53,6 @@
 			fixed4 frag(FragData IN) : SV_Target
 			{
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
-				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 
 				half value = (tex2D(_BloomTex, IN.texcoord) + _TextureSampleAdd).a;
 

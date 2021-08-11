@@ -1,4 +1,5 @@
-﻿Shader "HTSpecialEffects/UI/Blur"
+﻿//模糊
+Shader "HT.SpecialEffects/UI/Blur"
 {
 	Properties
 	{
@@ -42,13 +43,11 @@
 			sampler2D _MainTex;
 			fixed4 _TextureSampleAdd;
 			float4 _MainTex_TexelSize;
-			float4 _ClipRect;
 			int _Intensity;
 			
 			fixed4 frag(FragData IN) : SV_Target
 			{				
 				half4 color = (ApplyBlur(_MainTex, _MainTex_TexelSize.xy, IN.texcoord, _Intensity) + _TextureSampleAdd) * IN.color;
-				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 
 				#ifdef UNITY_UI_ALPHACLIP
 				clip(color.a - 0.001);

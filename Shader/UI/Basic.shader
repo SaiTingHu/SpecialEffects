@@ -1,4 +1,5 @@
-﻿Shader "HTSpecialEffects/UI/Basic"
+﻿//基本
+Shader "HT.SpecialEffects/UI/Basic"
 {
 	Properties
 	{
@@ -46,12 +47,10 @@
 			fixed _Saturation;
 			fixed _Contrast;
 			fixed4 _TextureSampleAdd;
-			float4 _ClipRect;
 
 			fixed4 frag(FragData IN) : SV_Target
 			{
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
-				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 				
 				//应用亮度
 				half3 finalColor = ApplyBrightness(color.rgb, _Brightness);

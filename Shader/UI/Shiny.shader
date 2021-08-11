@@ -1,4 +1,5 @@
-﻿Shader "HTSpecialEffects/UI/Shiny"
+﻿//闪亮
+Shader "HT.SpecialEffects/UI/Shiny"
 {
 	Properties
 	{
@@ -48,7 +49,6 @@
 			
 			sampler2D _MainTex;
 			fixed4 _TextureSampleAdd;
-			float4 _ClipRect;
 			fixed _ShinyX;
 			fixed _ShinyY;
 			fixed _Position;
@@ -61,7 +61,6 @@
 			fixed4 frag(FragData IN) : SV_Target
 			{
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
-				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 
 				//计算uv偏移值（映射到区间[-2, 2]）
 				fixed offset = _Position * 4 - 2;

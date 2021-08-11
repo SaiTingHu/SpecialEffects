@@ -1,11 +1,15 @@
-﻿Shader "HTSpecialEffects/UI/BorderFlow"
+﻿//边框流动
+Shader "HT.SpecialEffects/UI/BorderFlow"
 {
 	Properties
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip("使用透明度裁剪", Float) = 0
-		_FlowTex("流光纹理", 2D) = "white" {}
 		_FlowPos("流光位置", Range(0, 1)) = 0
+		_FlowColor("流光颜色", Color) = (1,1,1)
+		_FlowWidth("流光区域宽度", Range(0, 1)) = 0.3
+		_FlowThickness("流光区域厚度", Range(0, 1)) = 0.03
+		_FlowBrightness("流光亮度", Range(0, 1)) = 1
 	}
 
 	SubShader
@@ -41,36 +45,20 @@
 			#pragma multi_compile_local _ UNITY_UI_ALPHACLIP
 
 			sampler2D _MainTex;
+			float4 _MainTex_TexelSize;
 			fixed4 _TextureSampleAdd;
-			float4 _ClipRect;
-			sampler2D _FlowTex;
 			half _FlowPos;
+			fixed3 _FlowColor;
+			half _FlowWidth;
+			half _FlowThickness;
+			half _FlowBrightness;
 
 			fixed4 frag(FragData IN) : SV_Target
 			{
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
-				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 
-				half radius = 0.1;
-				half thick = 0.1;
-
-				//下方
-				half ratio = clamp(0, 0.5, _FlowPos) / 0.5;
-				half realPos = lerp(radius * -1, 1 + radius, ratio);
-				fixed left = 1 - step(IN.texcoord.x, realPos - radius);
-				fixed right = 1 - step(realPos + radius, IN.texcoord.x);
-				fixed up = 1 - step(thick, IN.texcoord.y);
-				color.rgb *= ((5 * left*right*up) + 1);
-
-				//右方
-				ratio = clamp(0, 0.5, _FlowPos - 0.5) / 0.5;
-				realPos = lerp(0, 1 + radius, ratio);
-				left = 1 - step(IN.texcoord.y, realPos - radius);
-				right = 1 - step(realPos + radius, IN.texcoord.y);
-				up = 1 - step(IN.texcoord.x, 1 - thick);
-				color.rgb *= ((5 * left*right*up) + 1);
-
-				//上方
+				//应用边框流动特效
+				color = ApplyBorderFlow(color, IN.texcoord, _FlowPos, _FlowWidth, _FlowThickness, _FlowBrightness, _FlowColor, _MainTex_TexelSize.zw);
 
 				#ifdef UNITY_UI_ALPHACLIP
 				clip(color.a - 0.001);

@@ -1,4 +1,5 @@
-﻿Shader "HTSpecialEffects/UI/Pixel"
+﻿//像素化
+Shader "HT.SpecialEffects/UI/Pixel"
 {
 	Properties
 	{
@@ -42,7 +43,6 @@
 			sampler2D _MainTex;
 			fixed4 _TextureSampleAdd;
 			float4 _MainTex_TexelSize;
-			float4 _ClipRect;
 			fixed _PixelSize;
 			
 			fixed4 frag(FragData IN) : SV_Target
@@ -51,8 +51,6 @@
 				IN.texcoord = ApplyPixel(IN.texcoord, _PixelSize, _MainTex_TexelSize.zw);
 
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
-				
-				color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 				
 				#ifdef UNITY_UI_ALPHACLIP
 				clip(color.a - 0.001);
