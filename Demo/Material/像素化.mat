@@ -24,6 +24,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _PixelSize: 0.5444162
+    - _PixelSize: 0.93601584
     - _UseUIAlphaClip: 0
     m_Colors: []

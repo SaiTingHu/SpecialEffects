@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u95EA\u4EAE"
-  m_Shader: {fileID: 4800000, guid: 8692c6eec5d4b8949896cd85596cf1b3, type: 3}
-  m_ShaderKeywords: _SHINYX_ON
+  m_Name: "\u9542\u7A7A"
+  m_Shader: {fileID: 4800000, guid: 41e643accfe2191479fca38b72767889, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,13 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: 1
-    - _Gloss: 1
-    - _Position: 0.6295331
-    - _Rotation: -22
-    - _ShinyX: 1
-    - _ShinyY: 0
-    - _Softness: 1
+    - _Alpha: 0
     - _UseUIAlphaClip: 0
-    - _Width: 0.23
-    m_Colors: []
+    m_Colors:
+    - _PiercedRect: {r: 0, g: 0, b: 0.3, a: 0.3}

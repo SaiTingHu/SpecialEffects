@@ -2072,8 +2072,8 @@ Camera:
   m_GameObject: {fileID: 1590684776}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -2644,7 +2644,7 @@ GameObject:
   - component: {fileID: 2031943082}
   - component: {fileID: 2031943081}
   m_Layer: 5
-  m_Name: "\u95EA\u4EAE"
+  m_Name: "\u9542\u7A7A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2681,7 +2681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501a9d9e69d77fe4b8502ae34cef1459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e81049120cafaa848848a5ad15101780, type: 2}
+  m_Material: {fileID: 2100000, guid: 51acd4e16f337064ab9bc9a349767065, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -2700,20 +2700,20 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   EffectsPlayers:
   - Target: {fileID: 2031943081}
-    DisplayName: "\u4F4D\u7F6E"
-    PropertyName: _Position
-    ValueType: 0
+    DisplayName: "\u9542\u7A7A\u533A\u57DF"
+    PropertyName: _PiercedRect
+    ValueType: 1
     FloatStartValue: 0
     FloatEndValue: 1
-    Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
-    Vector4EndValue: {x: 1, y: 1, z: 1, w: 1}
+    Vector4StartValue: {x: 0, y: 0, z: 0.3, w: 0.3}
+    Vector4EndValue: {x: 1, y: 1, z: 0.3, w: 0.3}
     ColorStartValue: {r: 1, g: 1, b: 1, a: 1}
     ColorEndValue: {r: 1, g: 1, b: 1, a: 1}
     IsLoop: 1
-    LoopMode: 0
-    Duration: 3
+    LoopMode: 1
+    Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 1
+    IsFoldout: 0
 --- !u!222 &2031943082
 CanvasRenderer:
   m_ObjectHideFlags: 0

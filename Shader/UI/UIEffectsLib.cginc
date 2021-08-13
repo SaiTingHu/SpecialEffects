@@ -1,6 +1,12 @@
 #ifndef UI_EFFECTS_LIB
 #define UI_EFFECTS_LIB
 
+//如果条件 condition == 1，返回 trueValue，如果 condition == 0，返回 falseValue
+half If(fixed condition, half trueValue, half falseValue)
+{
+	return trueValue * condition + falseValue * (1 - condition);
+}
+
 //计算一个颜色的亮度
 half GetBrightness(fixed3 color)
 {
@@ -159,7 +165,7 @@ half4 ApplyBorderFlow(half4 color, float2 uv, half flowPos, half flowWidth, half
 
 	//绘制上边框
 	//计算当前流光位置
-	half ratio = smoothstep(0, 0.5, flowPos);
+	half ratio = smoothstep(-width, 0.5, If(step(flowPos, 0.5), flowPos, flowPos - 1));
 	//将流光映射到图像上的真实位置
 	half realPos = lerp(width * -1, 1 + width, ratio);
 	//计算当前流光强度
@@ -180,7 +186,7 @@ half4 ApplyBorderFlow(half4 color, float2 uv, half flowPos, half flowWidth, half
 	height = height * texelSize.y / texelSize.x;
 
 	//绘制左边框（原理同上边框）
-	ratio = smoothstep(0.5, 1, flowPos);
+	ratio = smoothstep(0.5 - width, 1, flowPos);
 	realPos = lerp(width * -1, 1 + width, ratio);
 	brightness = IsInRect(half4(height, realPos, height * 2, width * 2), uv) * flowBrightness;
 	brightness *= smoothstep(0, width * 2, uv.y - realPos + width);
