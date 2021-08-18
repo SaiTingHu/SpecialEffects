@@ -183,6 +183,30 @@ MonoBehaviour:
     DisplayName: "\u4EAE\u5EA6"
     PropertyName: _Brightness
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 1
     FloatEndValue: 5
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -193,7 +217,7 @@ MonoBehaviour:
     LoopMode: 1
     Duration: 1
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &16547777
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -273,6 +297,30 @@ MonoBehaviour:
     DisplayName: "\u4F4D\u7F6E"
     PropertyName: _Position
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -400,6 +448,30 @@ MonoBehaviour:
     DisplayName: "\u5F3A\u5EA6"
     PropertyName: _Intensity
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 10
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -562,6 +634,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -572,11 +668,35 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
   - Target: {fileID: 446642985}
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -587,7 +707,7 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 0.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &446642986
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -702,6 +822,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -712,11 +856,35 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
   - Target: {fileID: 512302996}
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -727,7 +895,7 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 0.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &512302997
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -882,6 +1050,30 @@ MonoBehaviour:
     DisplayName: "\u4F4D\u7F6E"
     PropertyName: _Position
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -970,6 +1162,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -980,11 +1196,35 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
   - Target: {fileID: 696770622}
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -995,7 +1235,7 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 0.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &696770623
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1073,6 +1313,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1083,11 +1347,35 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
   - Target: {fileID: 787217021}
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1098,7 +1386,7 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 0.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &787217022
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1176,6 +1464,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1186,11 +1498,35 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
   - Target: {fileID: 807898988}
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1201,7 +1537,7 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 0.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &807898989
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1279,6 +1615,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1289,11 +1649,35 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
   - Target: {fileID: 922970177}
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1304,7 +1688,7 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 0.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &922970178
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1451,6 +1835,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1466,6 +1874,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1556,6 +1988,30 @@ MonoBehaviour:
     DisplayName: "\u4F4D\u7F6E"
     PropertyName: _Position
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1929,6 +2385,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1939,11 +2419,35 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
   - Target: {fileID: 1473851120}
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -1954,7 +2458,7 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 0.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &1473851121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2188,6 +2692,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -2198,11 +2726,35 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
   - Target: {fileID: 1657851323}
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -2213,7 +2765,7 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 0.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &1657851324
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2330,6 +2882,30 @@ MonoBehaviour:
     DisplayName: "\u50CF\u7D20\u5927\u5C0F"
     PropertyName: _PixelSize
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -2420,6 +2996,30 @@ MonoBehaviour:
     DisplayName: "\u6EB6\u89E3\u7A0B\u5EA6"
     PropertyName: _Degree
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -2510,6 +3110,30 @@ MonoBehaviour:
     DisplayName: "\u6CDB\u5149\u9600\u503C"
     PropertyName: _ThresholdValue
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0.4
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -2520,7 +3144,7 @@ MonoBehaviour:
     LoopMode: 1
     Duration: 1.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &1963779759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2598,6 +3222,30 @@ MonoBehaviour:
     DisplayName: "\u6D41\u5149\u4F4D\u7F6E"
     PropertyName: _FlowPos
     ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -2608,11 +3256,35 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
   - Target: {fileID: 1977191866}
     DisplayName: "\u6D41\u5149\u989C\u8272"
     PropertyName: _FlowColor
     ValueType: 2
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
@@ -2623,7 +3295,7 @@ MonoBehaviour:
     LoopMode: 0
     Duration: 0.5
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &1977191867
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2703,6 +3375,30 @@ MonoBehaviour:
     DisplayName: "\u9542\u7A7A\u533A\u57DF"
     PropertyName: _PiercedRect
     ValueType: 1
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     FloatStartValue: 0
     FloatEndValue: 1
     Vector4StartValue: {x: 0, y: 0, z: 0.3, w: 0.3}
@@ -2713,7 +3409,7 @@ MonoBehaviour:
     LoopMode: 1
     Duration: 2
     IsPlayOnStart: 1
-    IsFoldout: 0
+    IsFoldout: 1
 --- !u!222 &2031943082
 CanvasRenderer:
   m_ObjectHideFlags: 0

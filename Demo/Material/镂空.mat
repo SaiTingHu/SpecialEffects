@@ -27,4 +27,4 @@ Material:
     - _Alpha: 0
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _PiercedRect: {r: 0, g: 0, b: 0.3, a: 0.3}
+    - _PiercedRect: {r: 0.76173276, g: 0.76173276, b: 0.3, a: 0.3}

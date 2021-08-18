@@ -125,6 +125,7 @@ namespace HT.Effects
         }
 
         private Graphic _target;
+        private Editor _editor;
         private List<UIEffectsPlayer> _effectsPlayers;
         private Material _material;
         private MaterialProperty[] _materialProperties;
@@ -167,9 +168,10 @@ namespace HT.Effects
         /// </summary>
         private string CurrentEffectName { get; set; }
 
-        public AdvancedUIInspector(Object target)
+        public AdvancedUIInspector(Object target, Editor editor)
         {
             _target = target as Graphic;
+            _editor = editor;
             if (_target is AdvancedImage)
             {
                 _effectsPlayers = (_target as AdvancedImage).EffectsPlayers;
@@ -306,6 +308,12 @@ namespace HT.Effects
                     GUILayout.Space(20);
                     GUILayout.Label("Value Type", GUILayout.Width(EditorGUIUtility.labelWidth - 20));
                     GUILayout.Label(effectsPlayer.ValueType.ToString());
+                    GUILayout.EndHorizontal();
+
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Space(20);
+                    GUILayout.Label("Curve", GUILayout.Width(EditorGUIUtility.labelWidth - 20));
+                    effectsPlayer.Curve = EditorGUILayout.CurveField(effectsPlayer.Curve);
                     GUILayout.EndHorizontal();
 
                     GUILayout.BeginHorizontal();

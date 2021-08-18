@@ -25,9 +25,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _FlowBrightness: 1
-    - _FlowPos: 0.93601584
+    - _FlowPos: 0.23826712
     - _FlowThickness: 0.09
     - _FlowWidth: 0.3
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _FlowColor: {r: 1, g: 0.66867006, b: 0, a: 1}
+    - _FlowColor: {r: 1, g: 0.3119985, b: 0, a: 1}

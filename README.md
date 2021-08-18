@@ -10,10 +10,11 @@ SpecialEffects是一个基于Unity的UI特效和模型网格特效的Shader库�
 
 ## UI特效
 
+- [属性动画播放器](https://wanderer.blog.csdn.net/article/details/119732392)。
 - Basic [基本] - 原理详解与使用。
 - Bloom [泛光] - 原理详解与使用。
 - Blur [模糊] - 原理详解与使用。
-- BorderFlow [边框流动] - [原理详解与使用]()。
+- BorderFlow [边框流动] - 原理详解与使用。
 - CirclePierced [圆形镂空] - 原理详解与使用。
 - CoolColor [冷色] - 原理详解与使用。
 - CubePierced [方格镂空] - 原理详解与使用。

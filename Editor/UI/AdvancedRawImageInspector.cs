@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEditor.UI;
+using UnityEngine;
 
 namespace HT.Effects
 {
@@ -16,7 +17,7 @@ namespace HT.Effects
             if (targets.Length > 1)
                 return;
 
-            _inspector = new AdvancedUIInspector(target);
+            _inspector = new AdvancedUIInspector(target, this);
         }
         public override void OnInspectorGUI()
         {
@@ -30,6 +31,11 @@ namespace HT.Effects
 
             _inspector.RefreshEffects();
             _inspector.OnInspectorGUI();
+
+            if (GUI.changed)
+            {
+                EditorUtility.SetDirty(target);
+            }
         }
     }
 }

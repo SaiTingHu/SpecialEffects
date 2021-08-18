@@ -27,6 +27,10 @@ namespace HT.Effects
         /// </summary>
         [SerializeField] internal AnimationValueType ValueType;
         /// <summary>
+        /// 动画曲线
+        /// </summary>
+        [SerializeField] internal AnimationCurve Curve;
+        /// <summary>
         /// 动画开始值
         /// </summary>
         [SerializeField] internal float FloatStartValue;
@@ -142,7 +146,7 @@ namespace HT.Effects
                 }
 
                 _playPosition = value;
-                _setPosition(_playPosition);
+                _setPosition(Curve.Evaluate(_playPosition));
             }
         }
         /// <summary>
@@ -175,6 +179,7 @@ namespace HT.Effects
             PropertyName = propertyName;
             DisplayName = displayName;
             ValueType = valueType;
+            Curve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
             FloatStartValue = 0;
             FloatEndValue = 1;
             Vector4StartValue = Vector4.zero;
