@@ -44,7 +44,7 @@ Shader "HT.SpecialEffects/UI/Dissolve"
 			#include "UIEffectsLib.cginc"
 
 			#pragma multi_compile_local _ UNITY_UI_ALPHACLIP
-			#pragma shader_feature _MODE_BLEND _MODE_OVERLAY
+			#pragma multi_compile _MODE_BLEND _MODE_OVERLAY
 			
 			sampler2D _MainTex;
 			fixed4 _TextureSampleAdd;

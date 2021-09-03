@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -50,6 +51,10 @@ namespace HT.Effects
             "暖色",
             "波浪"
         };
+        /// <summary>
+        /// 所有特效使用的控制器
+        /// </summary>
+        private static readonly Dictionary<string, string> AllEffectController = new Dictionary<string, string>();
         /// <summary>
         /// 空特效名称
         /// </summary>
@@ -168,9 +173,9 @@ namespace HT.Effects
         /// </summary>
         private string CurrentEffectName { get; set; }
 
-        public AdvancedUIInspector(Object target, Editor editor)
+        public AdvancedUIInspector(Graphic target, Editor editor)
         {
-            _target = target as Graphic;
+            _target = target;
             _editor = editor;
             if (_target is AdvancedImage)
             {
@@ -190,7 +195,7 @@ namespace HT.Effects
             if (_material != _target.material)
             {
                 _material = _target.material;
-                _materialProperties = MaterialEditor.GetMaterialProperties(new Object[] { _material });
+                _materialProperties = MaterialEditor.GetMaterialProperties(new UnityEngine.Object[] { _material });
                 if (_material.IsUIDefaultMaterial())
                 {
                     CurrentEffect = NoEffects;
@@ -515,6 +520,7 @@ namespace HT.Effects
 
                 BeginChange("Use Special Effects");
                 _target.material = material;
+                AddController(effect);
                 EndChange();
             }
             else
@@ -545,14 +551,29 @@ namespace HT.Effects
         /// <param name="content">改变的提示</param>
         private void BeginChange(string content)
         {
-            Undo.RecordObject(_target, content);
+            Undo.RecordObject(_editor.target, content);
+        }
+        /// <summary>
+        /// 添加控制器
+        /// </summary>
+        /// <param name="effect">特效名称</param>
+        private void AddController(string effect)
+        {
+            if (!AllEffectController.ContainsKey(effect))
+                return;
+
+            Type type = Type.GetType(AllEffectController[effect] + ",HT.SpecialEffects");
+            if (type != null && _target.gameObject.GetComponent(type) == null)
+            {
+                _target.gameObject.AddComponent(type);
+            }
         }
         /// <summary>
         /// 结束值改变
         /// </summary>
         private void EndChange()
         {
-            EditorUtility.SetDirty(_target);
+            EditorUtility.SetDirty(_editor.target);
         }
     }
 }

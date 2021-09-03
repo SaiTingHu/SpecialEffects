@@ -7,6 +7,12 @@ half If(fixed condition, half trueValue, half falseValue)
 	return trueValue * condition + falseValue * (1 - condition);
 }
 
+//如果条件 condition == 1，返回 trueValue，如果 condition == 0，返回 falseValue
+half4 If(fixed condition, half4 trueValue, half4 falseValue)
+{
+	return trueValue * condition + falseValue * (1 - condition);
+}
+
 //计算一个颜色的亮度
 half GetBrightness(fixed3 color)
 {
@@ -23,7 +29,7 @@ float2 RotatePoint2(float2 point2, float2 center, half radian)
 	return point2;
 }
 
-//求一个点是否在指定方形区域内
+//求一个点是否在指定方形区域内，是则返回1，否则返回0
 fixed IsInRect(half4 rect, half2 point2)
 {
 	half width = rect.z * 0.5;
@@ -35,7 +41,7 @@ fixed IsInRect(half4 rect, half2 point2)
 	return left * right * up * down;
 }
 
-//求一个点是否在指定圆形区域内
+//求一个点是否在指定圆形区域内，是则返回1，否则返回0
 fixed IsInCircle(half2 center, half radius, half2 point2)
 {
 	half dis = distance(point2, center);
