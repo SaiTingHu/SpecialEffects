@@ -141,24 +141,29 @@ half4 ApplyDissolve(half4 color, fixed3 dissolveColor, half alpha, fixed degree,
 	fixed value = step(0.01, degree);
 	width *= value;
 	softness *= value;
-	//计算gap，溶解程度与溶解透明度的差值（width为溶解范围）
-	//gap小于width时，代表还未溶解、处于溶解中
-	//gap大于width时，代表已经溶解
-	//abs(gap)小于width时，代表处于溶解中
-	//abs(gap)大于等于width时，代表不在溶解中
-	float gap = degree - alpha;
+	
+	//colorFactor 溶解颜色因子，当colorFactor大于0时，代表处在【溶解中】的区域，反之则处在【已溶解】或【未溶解】区域
+	float colorFactor = width - abs(degree - alpha);
+	colorFactor = saturate(colorFactor * 20 / softness);
+	//alphaFactor 溶解透明度因子，当alphaFactor大于0时，代表处在【溶解中】或【未溶解】的区域，反之则处在【已溶解】的区域
+	float alphaFactor = width - (degree - alpha);
+	alphaFactor = saturate(alphaFactor * 20 / softness);
+
 #if _MODE_BLEND
-	//当处于溶解中时（width - abs(gap) 大于0），saturate返回大于0的数，附加溶解色，否则saturate返回0，不附加颜色
-	color.rgb += dissolveColor * saturate((width - abs(gap)) * 20 / softness);
+	//当处于溶解中的区域时，混合溶解色，否则不混合颜色
+	color.rgb += dissolveColor * colorFactor;
 #endif
+
 #if _MODE_OVERLAY
-	//当处于溶解中时（width - abs(gap) 大于0），saturate返回大于0的数，覆盖溶解色，否则saturate返回0，不覆盖颜色
-	color.rgb = lerp(color.rgb, dissolveColor, saturate((width - abs(gap)) * 20 / softness));
+	//当处于溶解中的区域时，覆盖溶解色，否则不覆盖颜色
+	color.rgb = lerp(color.rgb, dissolveColor, colorFactor);
 #endif
-	//当还未溶解、处于溶解中时（width - gap 大于0），saturate返回大于0的数，透明度叠加，否则saturate返回0，透明度为0
-	color.a *= saturate((width - gap) * 20 / softness);
-	//当溶解程度为1时，透明度为0
+
+	//当处于溶解中、还未溶解时，透明度叠加，否则透明度为0
+	color.a *= alphaFactor;
+	//当溶解程度为1时，透明度总是为0
 	color.a *= (1 - step(1, degree));
+
 	return color;
 }
 

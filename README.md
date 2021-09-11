@@ -18,7 +18,7 @@ SpecialEffects是一个基于Unity的UI特效和模型网格特效的Shader库�
 - CirclePierced [圆形镂空] - 原理详解与使用。
 - CoolColor [冷色] - 原理详解与使用。
 - CubePierced [方格镂空] - 原理详解与使用。
-- Dissolve [溶解] - 原理详解与使用。
+- Dissolve [溶解] - [原理详解与使用](https://wanderer.blog.csdn.net/article/details/120237414)。
 - Pixel [像素化] - 原理详解与使用。
 - Shiny [闪亮] - [原理详解与使用](https://wanderer.blog.csdn.net/article/details/120066411)。
 - WarmColor [暖色] - 原理详解与使用。
