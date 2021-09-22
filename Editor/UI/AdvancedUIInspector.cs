@@ -29,6 +29,7 @@ namespace HT.Effects
             "CubePierced",
             "Dissolve",
             "Pixel",
+            "Scan",
             "Shiny",
             "WarmColor",
             "Wave"
@@ -47,6 +48,7 @@ namespace HT.Effects
             "方格镂空",
             "溶解",
             "像素化",
+            "扫描",
             "闪亮",
             "暖色",
             "波浪"

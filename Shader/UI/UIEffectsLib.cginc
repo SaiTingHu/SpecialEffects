@@ -73,7 +73,7 @@ half3 ApplyContrast(half3 color, fixed contrast)
 float2 ApplyPixel(float2 uv, fixed pixelSize, float2 texelSize)
 {
 	//此处确保缩放系数始终大于等于2（因为如果小于2，甚至等于0了会影响后面的计算）
-	half2 factor = max(2, (1 - pixelSize * 0.95) * texelSize);
+	half factor = max(2, (1 - pixelSize * 0.95) * texelSize);
 	//将uv值乘以缩放系数，然后取整，再除以缩放系数，以达到丢弃部分细节纹理的效果
 	return round(uv * factor) / factor;
 }
@@ -129,6 +129,23 @@ half4 ApplyShiny(half4 color, float2 uv, fixed width, fixed softness, fixed brig
 	half3 shinyColor = lerp(fixed3(1, 1, 1), color.rgb * 20, gloss);
 	//在原颜色基础上叠加闪光颜色
 	color.rgb += color.a * power * brightness * shinyColor;
+	return color;
+}
+
+//为一个uv区域应用扫描效果
+half4 ApplyScan(half4 color, float2 uv, fixed scanPos, fixed scanWidth, fixed4 scanColor, half scanIntensity, int scanDensity, sampler2D noiseTex)
+{
+	//根据噪声数据随机缩放扫描强度
+	float2 scanUV = round(uv * scanDensity) / scanDensity;
+	scanIntensity = tex2D(noiseTex, scanUV + float2(_Time.y, _Time.y)).a * scanIntensity;
+
+	//根据扫描区域平滑扫描颜色
+	fixed left = scanPos - scanWidth;
+	fixed right = scanPos;
+	fixed factor = step(left, uv.x) * step(uv.x, right);
+	scanColor = smoothstep(left, right, uv.x) * scanColor * scanIntensity * factor;
+
+	color += scanColor;
 	return color;
 }
 

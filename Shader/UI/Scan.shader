@@ -1,11 +1,16 @@
-﻿//像素化
-Shader "HT.SpecialEffects/UI/Pixel"
+﻿//扫描
+Shader "HT.SpecialEffects/UI/Scan"
 {
 	Properties
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip("使用透明度裁剪", Float) = 0
-		_PixelSize("像素大小", Range(0, 1)) = 0
+		_NoiseTex("噪声纹理", 2D) = "white" {}
+		_ScanPos("扫描光线位置", Range(0,2)) = 0
+		_ScanWidth("扫描光线宽度",Range(0,1)) = 1
+		_ScanColor("扫描光线颜色", Color) = (1,1,1,1)
+		_ScanIntensity("扫描光线强度", Range(0, 10)) = 5
+		_ScanDensity("扫描光线密度", Range(2, 20)) = 5
 	}
 
 	SubShader
@@ -39,19 +44,22 @@ Shader "HT.SpecialEffects/UI/Pixel"
 			#include "UIEffectsLib.cginc"
 
 			#pragma multi_compile_local _ UNITY_UI_ALPHACLIP
-			
+
 			sampler2D _MainTex;
 			fixed4 _TextureSampleAdd;
-			float4 _MainTex_TexelSize;
-			fixed _PixelSize;
-			
+			sampler2D _NoiseTex;
+			fixed _ScanPos;
+			fixed _ScanWidth;
+			fixed4 _ScanColor;
+			half _ScanIntensity;
+			half _ScanDensity;
+
 			fixed4 frag(FragData IN) : SV_Target
 			{
-				//根据纹理的像素宽高（_MainTex_TexelSize.zw）生成缩放系数，应用像素化
-				IN.texcoord = ApplyPixel(IN.texcoord, _PixelSize, _MainTex_TexelSize.zw);
-
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 				
+				color = ApplyScan(color, IN.texcoord, _ScanPos, _ScanWidth, _ScanColor, _ScanIntensity, _ScanDensity, _NoiseTex);
+
 				#ifdef UNITY_UI_ALPHACLIP
 				clip(color.a - 0.001);
 				#endif
