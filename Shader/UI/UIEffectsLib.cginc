@@ -8,6 +8,18 @@ half If(fixed condition, half trueValue, half falseValue)
 }
 
 //如果条件 condition == 1，返回 trueValue，如果 condition == 0，返回 falseValue
+half2 If(fixed condition, half2 trueValue, half2 falseValue)
+{
+	return trueValue * condition + falseValue * (1 - condition);
+}
+
+//如果条件 condition == 1，返回 trueValue，如果 condition == 0，返回 falseValue
+half3 If(fixed condition, half3 trueValue, half3 falseValue)
+{
+	return trueValue * condition + falseValue * (1 - condition);
+}
+
+//如果条件 condition == 1，返回 trueValue，如果 condition == 0，返回 falseValue
 half4 If(fixed condition, half4 trueValue, half4 falseValue)
 {
 	return trueValue * condition + falseValue * (1 - condition);
@@ -70,12 +82,13 @@ half3 ApplyContrast(half3 color, fixed contrast)
 }
 
 //为一个uv值应用像素化缩放
-float2 ApplyPixel(float2 uv, fixed pixelSize, float2 texelSize)
+float2 ApplyPixel(float2 uv, fixed pixelSize, float texelSize)
 {
-	//此处确保缩放系数始终大于等于2（因为如果小于2，甚至等于0了会影响后面的计算）
-	half factor = max(2, (1 - pixelSize * 0.95) * texelSize);
+	//此处确保缩放系数始终大于等于5
+	half factor = max(5, (1 - pixelSize) * texelSize);
 	//将uv值乘以缩放系数，然后取整，再除以缩放系数，以达到丢弃部分细节纹理的效果
-	return round(uv * factor) / factor;
+	//如果pixelSize小于等于0，表明无像素化，直接返回原始uv
+	return If(step(pixelSize, 0), uv, round(uv * factor) / factor);
 }
 
 //让一个颜色更冷

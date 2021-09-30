@@ -47,8 +47,8 @@ Shader "HT.SpecialEffects/UI/Pixel"
 			
 			fixed4 frag(FragData IN) : SV_Target
 			{
-				//根据纹理的像素宽高（_MainTex_TexelSize.zw）生成缩放系数，应用像素化
-				IN.texcoord = ApplyPixel(IN.texcoord, _PixelSize, _MainTex_TexelSize.zw);
+				//根据纹理的宽（_MainTex_TexelSize.z）生成缩放系数，应用像素化
+				IN.texcoord = ApplyPixel(IN.texcoord, _PixelSize, _MainTex_TexelSize.z);
 
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 				
