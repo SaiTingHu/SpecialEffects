@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: 2.04467
+    - _Brightness: 1
     - _Contrast: 1
     - _Saturation: 1
     - _UseUIAlphaClip: 0

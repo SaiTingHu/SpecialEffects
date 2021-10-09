@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Degree: 1
+    - _Degree: 0
     - _Mode: 1
     - _Softness: 1
     - _UseUIAlphaClip: 0

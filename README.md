@@ -4,7 +4,7 @@ SpecialEffects是一个基于Unity的UI特效和模型网格特效的Shader库�
 
 ## 环境
 
-- Unity版本：2018.4.0及以上。
+- Unity版本：2019.4.30。
 
 - .NET API版本：4.x。
 

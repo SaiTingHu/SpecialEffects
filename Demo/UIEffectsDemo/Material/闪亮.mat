@@ -26,7 +26,7 @@ Material:
     m_Floats:
     - _Brightness: 1
     - _Gloss: 1
-    - _Position: 0.8436005
+    - _Position: 0
     - _Rotation: -22
     - _ShinyX: 1
     - _ShinyY: 0
