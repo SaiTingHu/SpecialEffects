@@ -31,6 +31,26 @@ half GetBrightness(fixed3 color)
 	return 0.299f * color.r + 0.587f * color.g + 0.114f * color.b;
 }
 
+//RGB色彩空间转换至HSV色彩空间
+float3 RGBToHSV(float3 color)
+{
+	float4 k = float4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+	float4 p = lerp(float4(color.bg, k.wz), float4(color.gb, k.xy), step(color.b, color.g));
+	float4 q = lerp(float4(p.xyw, color.r), float4(color.r, p.yzx), step(p.x, color.r));
+
+	float d = q.x - min(q.w, q.y);
+	float e = 1.0e-10;
+	return float3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+//HSV色彩空间转换至RGB色彩空间
+float3 HSVToRGB(float3 color)
+{
+	float3 rgb = clamp(abs(fmod(color.x * 6.0 + float3(0.0, 4.0, 2.0), 6) - 3.0) - 1.0, 0, 1);
+	rgb = rgb * rgb * (3.0 - 2.0 * rgb);
+	return color.z * lerp(float3(1, 1, 1), rgb, color.y);
+}
+
 //将二维顶点point2，沿着圆心center，顺时针旋转radian弧度
 float2 RotatePoint2(float2 point2, float2 center, half radian)
 {
@@ -263,6 +283,20 @@ half4 ApplyWave(sampler2D mainTex, sampler2D noiseTex, float2 uv, float2 wave, f
 {
 	half4 noise = tex2D(noiseTex, uv + wave);
 	half4 color = tex2D(mainTex, uv + noise.a * intensity);
+	return color;
+}
+
+//为一个颜色应用修正效果
+half3 ApplyCorrect(half3 color, float targetHue, float correctHue, float differenceHue)
+{
+	float3 hsv = RGBToHSV(color);
+	//计算色差
+	float difference = hsv.x - targetHue;
+	//色差值小于最大色差
+	fixed isCorrect = step(abs(difference), differenceHue);
+	//修正颜色
+	hsv.x = If(isCorrect, correctHue + difference, hsv.x);
+	color = HSVToRGB(hsv);
 	return color;
 }
 

@@ -17,6 +17,7 @@ SpecialEffects是一个基于Unity的UI特效和模型网格特效的Shader库�
 - BorderFlow [边框流动] - [原理详解与使用](https://wanderer.blog.csdn.net/article/details/119868285)。
 - CirclePierced [圆形镂空] - 原理详解与使用。
 - CoolColor [冷色] - 原理详解与使用。
+- Correct [颜色修正] - [原理详解与使用](https://wanderer.blog.csdn.net/article/details/120870512)。
 - CubePierced [方格镂空] - 原理详解与使用。
 - Dissolve [溶解] - [原理详解与使用](https://wanderer.blog.csdn.net/article/details/120237414)。
 - Pixel [像素化] - [原理详解与使用](https://wanderer.blog.csdn.net/article/details/120561525)。
