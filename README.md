@@ -27,3 +27,5 @@ SpecialEffects是一个基于Unity的UI特效和模型网格特效的Shader库�
 - Wave [波浪] - 原理详解与使用。
 
 ## 模型网格特效
+
+- Flatten [扁平化] - 原理详解与使用。

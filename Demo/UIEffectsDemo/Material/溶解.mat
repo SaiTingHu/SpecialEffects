@@ -2,14 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: "\u6EB6\u89E3"
   m_Shader: {fileID: 4800000, guid: 78f1e53363bc4d1478298eec1234b141, type: 3}
-  m_ShaderKeywords: _MODE_OVERLAY
+  m_ValidKeywords:
+  - _MODE_OVERLAY
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -27,11 +29,13 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
-    - _Degree: 0
+    - _Degree: 1
     - _Mode: 1
     - _Softness: 1
     - _UseUIAlphaClip: 0
     - _Width: 1
     m_Colors:
     - _DissolveColor: {r: 0, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
