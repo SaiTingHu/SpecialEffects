@@ -29,7 +29,7 @@ Material:
     - _CorrectHue: 0.16666667
     - _DifferenceHue: 0.1
     - _Intensity: 0
-    - _Range: 0.8279201
+    - _Range: 0.033625245
     - _ShowOriginal: 0
     - _TargetHue: 0
     - _UseUIAlphaClip: 0

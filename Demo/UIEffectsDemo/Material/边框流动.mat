@@ -27,10 +27,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _FlowBrightness: 1
-    - _FlowPos: 0.3691399
+    - _FlowPos: 0.21264212
     - _FlowThickness: 0.09
     - _FlowWidth: 0.3
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _FlowColor: {r: 1, g: 0.54578424, b: 0, a: 1}
+    - _FlowColor: {r: 1, g: 0.8233044, b: 0, a: 1}
   m_BuildTextureStacks: []

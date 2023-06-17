@@ -3568,7 +3568,46 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  EffectsPlayers: []
+  EffectsPlayers:
+  - Target: {fileID: 1846241877}
+    DisplayName: "\u4FEE\u6B63\u989C\u8272"
+    PropertyName: _CorrectHue
+    ValueType: 0
+    Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    FloatStartValue: 0
+    FloatEndValue: 1
+    Vector4StartValue: {x: 0, y: 0, z: 0, w: 0}
+    Vector4EndValue: {x: 1, y: 1, z: 1, w: 1}
+    ColorStartValue: {r: 1, g: 1, b: 1, a: 1}
+    ColorEndValue: {r: 1, g: 1, b: 1, a: 1}
+    IsLoop: 1
+    LoopMode: 0
+    Duration: 5
+    IsPlayOnStart: 1
+    IsFoldout: 1
 --- !u!222 &1846241878
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3680,7 +3719,7 @@ MonoBehaviour:
     Vector4EndValue: {x: 1, y: 1, z: 1, w: 1}
     ColorStartValue: {r: 1, g: 1, b: 1, a: 1}
     ColorEndValue: {r: 1, g: 1, b: 1, a: 1}
-    IsLoop: 0
+    IsLoop: 1
     LoopMode: 0
     Duration: 5
     IsPlayOnStart: 1
