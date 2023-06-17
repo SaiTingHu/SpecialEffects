@@ -32,7 +32,7 @@ Material:
     m_Floats:
     - _ScanDensity: 5
     - _ScanIntensity: 5
-    - _ScanPos: 1.3361167
+    - _ScanPos: 1.472358
     - _ScanWidth: 1
     - _UseUIAlphaClip: 0
     m_Colors:

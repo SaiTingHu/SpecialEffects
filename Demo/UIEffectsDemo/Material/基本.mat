@@ -26,7 +26,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 3.6722333
+    - _Brightness: 3.944716
     - _Contrast: 1
     - _Saturation: 1
     - _UseUIAlphaClip: 0

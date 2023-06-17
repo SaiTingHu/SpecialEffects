@@ -25,30 +25,24 @@ half4 If(fixed condition, half4 trueValue, half4 falseValue)
 	return trueValue * condition + falseValue * (1 - condition);
 }
 
-//计算一个颜色的亮度
-half GetBrightness(fixed3 color)
-{
-	return 0.299f * color.r + 0.587f * color.g + 0.114f * color.b;
-}
-
 //RGB色彩空间转换至HSV色彩空间
-float3 RGBToHSV(float3 color)
+half3 RGBToHSV(half3 color)
 {
-	float4 k = float4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
-	float4 p = lerp(float4(color.bg, k.wz), float4(color.gb, k.xy), step(color.b, color.g));
-	float4 q = lerp(float4(p.xyw, color.r), float4(color.r, p.yzx), step(p.x, color.r));
+	half4 k = half4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+	half4 p = lerp(half4(color.bg, k.wz), half4(color.gb, k.xy), step(color.b, color.g));
+	half4 q = lerp(half4(p.xyw, color.r), half4(color.r, p.yzx), step(p.x, color.r));
 
-	float d = q.x - min(q.w, q.y);
-	float e = 1.0e-10;
-	return float3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+	half d = q.x - min(q.w, q.y);
+	half e = 1.0e-10;
+	return half3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
 }
 
 //HSV色彩空间转换至RGB色彩空间
-float3 HSVToRGB(float3 color)
+half3 HSVToRGB(half3 color)
 {
-	float3 rgb = clamp(abs(fmod(color.x * 6.0 + float3(0.0, 4.0, 2.0), 6) - 3.0) - 1.0, 0, 1);
+	half3 rgb = clamp(abs(fmod(color.x * 6.0 + half3(0.0, 4.0, 2.0), 6) - 3.0) - 1.0, 0, 1);
 	rgb = rgb * rgb * (3.0 - 2.0 * rgb);
-	return color.z * lerp(float3(1, 1, 1), rgb, color.y);
+	return color.z * lerp(half3(1, 1, 1), rgb, color.y);
 }
 
 //将二维顶点point2，沿着圆心center，顺时针旋转radian弧度
@@ -89,7 +83,7 @@ half3 ApplyBrightness(half3 color, fixed brightness)
 //为一个颜色应用饱和度
 half3 ApplySaturation(half3 color, fixed saturation)
 {
-	half gray = dot(half3(0.2154, 0.7154, 0.0721), color);
+	half gray = dot(half3(0.2125, 0.7154, 0.0721), color);
 	half3 grayColor = half3(gray, gray, gray);
 	return lerp(grayColor, color, saturation);
 }

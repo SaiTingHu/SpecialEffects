@@ -33,7 +33,8 @@ namespace HT.Effects
             "Scan",
             "Shiny",
             "WarmColor",
-            "Wave"
+            "Wave",
+            "Wireframe"
         };
         /// <summary>
         /// 所有特效名称
@@ -53,7 +54,8 @@ namespace HT.Effects
             "扫描",
             "闪亮",
             "暖色",
-            "波浪"
+            "波浪",
+            "线框"
         };
         /// <summary>
         /// 所有特效使用的控制器

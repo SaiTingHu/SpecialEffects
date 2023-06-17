@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u6CDB\u5149"
-  m_Shader: {fileID: 4800000, guid: 4cdd71b65adc0754cafe9c5dfa342ed9, type: 3}
+  m_Name: "\u7EBF\u6846\u5316"
+  m_Shader: {fileID: 4800000, guid: a3eea10fd9dc76b4da7e2e82abd1b8ed, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -20,19 +20,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BloomTex:
-        m_Texture: {fileID: 2800000, guid: 0dcd9e9eabbece341a90f132a0e0fd3b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Intensity: 0.5
-    - _ThresholdValue: 0.50397986
+    - _CorrectHue: 0.16666667
+    - _DifferenceHue: 0.1
+    - _Intensity: 0
+    - _Range: 0.8279201
+    - _ShowOriginal: 0
+    - _TargetHue: 0
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _BloomColor: {r: 1, g: 0.62614304, b: 0, a: 1}
+    - _BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+    - _WireframeColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

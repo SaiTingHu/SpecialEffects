@@ -25,6 +25,7 @@ SpecialEffects是一个基于Unity的UI特效和模型网格特效的Shader库�
 - Shiny [闪亮] - [原理详解与使用](https://wanderer.blog.csdn.net/article/details/120066411)。
 - WarmColor [暖色] - 原理详解与使用。
 - Wave [波浪] - 原理详解与使用。
+- Wireframe [线框] - [原理详解与使用](https://wanderer.blog.csdn.net/article/details/131259158)。
 
 ## 模型网格特效
 
