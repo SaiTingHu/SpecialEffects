@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: "\u95EA\u4EAE"
   m_Shader: {fileID: 4800000, guid: 8692c6eec5d4b8949896cd85596cf1b3, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _SHINYX_ON
@@ -18,6 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -29,7 +32,7 @@ Material:
     m_Floats:
     - _Brightness: 1
     - _Gloss: 1
-    - _Position: 0.15674397
+    - _Position: 0.19968827
     - _Rotation: -22
     - _ShinyX: 1
     - _ShinyY: 0

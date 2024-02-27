@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: "\u8FB9\u6846\u6D41\u52A8"
   m_Shader: {fileID: 4800000, guid: 7b75e1e06f6e2d64a96613fb17da8410, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -17,6 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -27,10 +30,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _FlowBrightness: 1
-    - _FlowPos: 0.21264212
+    - _FlowPos: 0.29807207
     - _FlowThickness: 0.09
     - _FlowWidth: 0.3
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _FlowColor: {r: 1, g: 0.8233044, b: 0, a: 1}
+    - _FlowColor: {r: 1, g: 0.8611564, b: 0, a: 1}
   m_BuildTextureStacks: []

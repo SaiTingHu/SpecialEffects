@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: "\u6EB6\u89E3"
   m_Shader: {fileID: 4800000, guid: 78f1e53363bc4d1478298eec1234b141, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _MODE_OVERLAY
   m_InvalidKeywords: []
@@ -18,6 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -31,7 +34,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Degree: 0.11231385
+    - _Degree: 0.32017702
     - _Mode: 1
     - _Softness: 1
     - _UseUIAlphaClip: 0
